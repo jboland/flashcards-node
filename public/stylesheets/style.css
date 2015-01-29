@@ -1,8 +1,101 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
-a {
-  color: #00B7FF;
-}
+/* html5doctor.com Reset v1.6.1 - http://cssreset.com */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
+
+      body {
+        background-color: #ebebeb;
+      }
+      .flash-card-container {
+        width: 400px;
+        padding: 15px;
+        border: solid 1px #ddd;
+        box-shadow: 1px 1px 1px #aaa;
+        margin: 20px auto;
+        cursor: pointer;
+        min-height: 100px;
+        position: relative;
+        font-family: Helvetica, "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+        background-color: #fff;
+      }
+
+      .header h3,
+      .header h4 {
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      .definition {
+        padding: 10px 20px;
+      }
+
+      .header .simplified {
+        font-size: 2.5em;      
+      }
+
+      .flash-card-container .back {
+        height: 0;
+        opacity: 0;
+        z-index: -1;
+      }
+
+      .flash-card-container .front {
+        -webkit-transition: all .5s ease;
+        height: auto;
+        opacity: 1;
+        z-index: 1;
+      }
+
+      .flash-card-container.flipped .front{
+        height: 0;
+        opacity: 0;
+        z-index: -1;
+      }
+
+      .flash-card-container.flipped .back {
+        -webkit-transition: all .5s ease;
+        height: auto;
+        opacity: 1;
+        z-index: 1;
+      }
+
+      .flash-card-container .prev,
+      .flash-card-container .next  {
+        position: absolute;
+        top: 40%;
+        font-size: 1.5em;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .flash-card-container .next {
+        right: 10px;
+      }
+
+      .flash-card-container .prev {
+        left: 10px;
+      }
+
+      .card-counter {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: .7em;
+        opacity: 0.6;
+        padding: 5px;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+
+/*
+  Small screens
+*/
+    @media only screen and (max-width : 480px) {
+    
+      .flash-card-container {
+        width: 96%;
+        padding: 0;
+      }    
+    }

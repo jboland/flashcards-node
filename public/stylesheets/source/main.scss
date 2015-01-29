@@ -1,0 +1,108 @@
+@import "reset.scss";
+
+
+body {
+	background-color: #ebebeb;
+
+      .flash-card-container {
+        width: 400px;
+        padding: 15px;
+        border: solid 1px #ddd;
+        box-shadow: 1px 1px 1px #aaa;
+        margin: 20px auto;
+        cursor: pointer;
+        min-height: 100px;
+        position: relative;
+        font-family: Helvetica, "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+        background-color: #fff;
+
+		.header {
+			h3,
+			h4 {
+				padding: 10px 0;
+				text-align: center;
+      		}
+      		.simplified {
+      			font-size: 2.5em;
+      		}
+      	}
+
+
+		.definition {
+			padding: 10px 20px;
+		}
+
+      }
+
+		.flash-card-container {
+      		.back {
+		        height: 0;
+    	    	opacity: 0;
+	        	z-index: -1;
+    	  	}
+
+	      	.front {
+    	    	-webkit-transition: all .5s ease;
+        		height: auto;
+        		opacity: 1;
+        		z-index: 1;
+      		}
+
+      		&.flipped {
+      			.front {
+					height: 0;
+        			opacity: 0;
+        			z-index: -1;
+      			}
+
+      			.back {
+					-webkit-transition: all .5s ease;
+					height: auto;
+					opacity: 1;
+					z-index: 1;
+      			}
+      		}
+
+    		.prev,
+    		.next {
+				position: absolute;
+				top: 40%;
+				font-size: 1.5em;
+				font-weight: bold;
+				cursor: pointer;
+    		}
+    		
+    		.next {
+	    		right: 10px;
+    		}
+    		
+    		.prev {
+    			left: 10px;
+	    	}
+    	}
+
+		.card-counter {
+        	position: absolute;
+        	bottom: 0;
+        	right: 0;
+        	font-size: .7em;
+        	opacity: 0.6;
+        	padding: 5px;
+    	}
+
+		.hidden {
+	        display: none;
+	    }
+
+    }
+
+/*
+  Small screens
+*/
+    @media only screen and (max-width : 480px) {
+    
+      .flash-card-container {
+        width: 96%;
+        padding: 0;
+      }    
+    }

@@ -1,5 +1,22 @@
-extends layout
+extend layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	#flashcard-app.container
+
+	script(type="text/template", id="flashcard-template")
+		.flash-card-container
+			.front
+				.header
+					h3.simplified <%= simplified %>
+					h4.pinyin-accented <%= pinyin %>
+			.back
+				.definition <%= definition %>
+			.nav
+				.prev <
+				.next >
+				.card-counter <%= index + 1 %>
+
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+	script(src="http://documentcloud.github.com/underscore/underscore-min.js")
+	script(src="http://documentcloud.github.com/backbone/backbone-min.js")
+	script(src="/javascripts/app.js")
