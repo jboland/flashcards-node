@@ -13,7 +13,6 @@ $(function(){
 		},
 
 		initialize: function() {
-			console.log("creating model", this);
 
 	      	var pinyinNum = this.get("pinyin_num").match(/[0-9]/);
 	      	if (pinyinNum && pinyinNum. length > 0) {
@@ -51,7 +50,7 @@ $(function(){
 		events: {
 			'click .prev' : 'prevWord',
 			'click .next': 'nextWord',
-			'click .header': 'toggleFlipped'
+			'click .front, click .back, click .definition': 'toggleFlipped'
 		},
 
 		initialize: function() {
@@ -66,17 +65,14 @@ $(function(){
 			
 			// this.$el.html(this.template(rendered.at(0)));
 
-			console.log("rendered content", this);
 			this.collection.each(function(model, idx){
 
 				model.set("index", idx);
-				console.log('model', model.get("index"));
 			});
 			return this;
 		},
 
 		pickFirst: function() {
-			console.log("picking first item");
 			var firstWordRendered = this.collection.at(0).toJSON();
 			//console.log("firstword", firstWord);
 			//console.log("firstword", firstWord.toJSON());
@@ -88,7 +84,8 @@ $(function(){
 			this.render();
 		},
 
-		toggleFlipped: function() {
+		toggleFlipped: function(e) {
+			console.log(e);
 			console.log("in flip");
 			this.$(".flash-card-container").toggleClass("flipped");
 		},
