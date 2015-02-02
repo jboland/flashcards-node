@@ -5,18 +5,20 @@ block content
 
 	script(type="text/template", id="flashcard-template")
 		.flash-card-container
-			.front
-				.header
-					h3.simplified <%= simplified %>
-					h4.pinyin-accented <%= pinyin %>
-			.back
-				.definition <%= definition %>
-			.nav
-				.prev <
-				.next >
-				.card-counter <%= index + 1 %>
+			.flipper
+				.front
+					.header
+						h3.simplified <%= simplified %>
+						h4.pinyin-accented <%= pinyin %>
+				.back
+					.definition <%= definition %>
+			.prev <
+			.next >
+			.card-counter <%= index + 1 %>
 
-	script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
-	script(src="http://documentcloud.github.com/underscore/underscore-min.js")
-	script(src="http://documentcloud.github.com/backbone/backbone-min.js")
+
+
+	script(src="/javascripts/lib/jquery.min.js")
+	script(src="/javascripts/lib/underscore.min.js")
+	script(src="/javascripts/lib/backbone.min.js")
 	script(src="/javascripts/app.js")

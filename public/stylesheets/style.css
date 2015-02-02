@@ -20,6 +20,40 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
         background-color: #fff;
         color: #333;
         border-radius: 5px;
+
+        /*flip*/
+        perspective: 1000;
+      }
+
+      .flash-card-container.flipped .flipper {
+        transform: rotateY(180deg);
+      }
+
+      .flipper {
+        transition: 0.8s;
+        transform-style: preserve-3d;
+        position: relative;
+      }
+
+      .flash-card-container, .front, .back {
+        width: 400px;
+        height: 272px;
+      }
+
+      .front, .back {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .front {
+        z-index: 2;
+        transform: rotateY(0deg);
+      }
+
+      .back {
+        transform: rotateY(180deg); 
       }
 
       .header {
@@ -39,14 +73,21 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
       }
 
       .definition {
-        padding: 10px 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        height: 50%;
+        width: 70%;
       }
 
       .header .simplified {
         font-size: 2.5em;      
       }
 
-      .flash-card-container .back {
+/*      .flash-card-container .back {
         height: 0;
         opacity: 0;
         z-index: -1;
@@ -71,7 +112,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
         opacity: 1;
         z-index: 1;
       }
-
+*/
       .flash-card-container .prev,
       .flash-card-container .next  {
         position: absolute;

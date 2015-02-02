@@ -50,7 +50,7 @@ $(function(){
 		events: {
 			'click .prev' : 'prevWord',
 			'click .next': 'nextWord',
-			'click .front, click .back, click .definition': 'toggleFlipped'
+			'click .flipper': 'toggleFlipped'
 		},
 
 		initialize: function() {
