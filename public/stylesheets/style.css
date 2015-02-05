@@ -9,9 +9,8 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
       }
 
       .flash-card-container {
-        width: 400px;
-        height: 272px;
-        border: none;
+
+
         box-shadow: 1px 1px 1px #aaa;
         margin: 20px auto;
         cursor: pointer;
@@ -23,6 +22,19 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
         /*flip*/
         perspective: 1000;
+      }
+
+/*
+  Larger devices
+*/
+      @media only screen and (min-width: 480px) {
+        .flash-card-container,
+        .front,
+        .back {
+          width: 400px;
+          height: 272px;
+        }
+
       }
 
       .flash-card-container.flipped .flipper {
@@ -38,10 +50,6 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
         position: relative;
       }
 
-      .flash-card-container, .front, .back {
-        width: 400px;
-        height: 272px;
-      }
 
       .front, .back {
         -webkit-backface-visibility: hidden;
@@ -176,14 +184,3 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
         display: none;
       }
 
-
-/*
-  Small screens
-*/
-    @media only screen and (max-width : 480px) {
-    
-      .flash-card-container {
-        width: 96%;
-        padding: 0;
-      }    
-    }
