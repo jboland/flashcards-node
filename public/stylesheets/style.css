@@ -57,6 +57,15 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
       .back {
         transform: rotateY(180deg); 
         background: transparent;
+        z-index: -1;
+      }
+
+      .flash-card-container.flipped .back {
+        z-index: 2;
+      }
+
+      .flash-card-container.flipped .front {
+        z-index: -1;
       }
 
       .header {
