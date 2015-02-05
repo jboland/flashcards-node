@@ -14,25 +14,58 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
         box-shadow: 1px 1px 1px #aaa;
         margin: 20px auto;
         cursor: pointer;
-        min-height: 100px;
+        
         position: relative;
         background-color: #fff;
         color: #333;
         border-radius: 5px;
 
         /*flip*/
+        -webkit-perspective: 1000;
         perspective: 1000;
       }
+
+      .nav {
+        display: none;
+      }
+
+      .flash-card-container,
+      .front,
+      .back {
+        width: 80vw;
+        height: 80vh;
+      }
+
 
 /*
   Larger devices
 */
       @media only screen and (min-width: 480px) {
+        .flash-card-container {
+          min-height: 100px;
+        }
+
         .flash-card-container,
         .front,
         .back {
           width: 400px;
           height: 272px;
+        }
+
+        .nav {
+          display: block;
+          margin: 0 auto;
+          width: 130px;
+          text-align: center;
+        }
+
+        .prev, 
+        .next {
+          display: inline-block;
+          padding: 6px 10px;
+          font-weight: bold;
+          font-size: 1.5em;
+          cursor: pointer;
         }
 
       }
@@ -82,14 +115,18 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
         z-index: -1;
       }
 
-      .header {
-        height: 100px;
+      .header,
+      .definition {
+
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         margin: auto;
+        width: 70%;
+        height: 50%;
+
       }
 
       .header h3,
@@ -105,40 +142,12 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
         right: 0;
         bottom: 0;
         margin: auto;
-        height: 50%;
-        width: 70%;
       }
 
       .header .simplified {
         font-size: 2.5em;      
       }
 
-/*      .flash-card-container .back {
-        height: 0;
-        opacity: 0;
-        z-index: -1;
-      }
-
-      .flash-card-container .front {
-        -webkit-transition: all .5s ease;
-        height: auto;
-        opacity: 1;
-        z-index: 1;
-      }
-
-      .flash-card-container.flipped .front{
-        height: 0;
-        opacity: 0;
-        z-index: -1;
-      }
-
-      .flash-card-container.flipped .back {
-        -webkit-transition: all .5s ease;
-        height: auto;
-        opacity: 1;
-        z-index: 1;
-      }
-*/
       .flash-card-container .prev,
       .flash-card-container .next  {
         position: absolute;
@@ -165,20 +174,6 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
         padding: 5px;
       }
 
-      .nav {
-        margin: 0 auto;
-        width: 130px;
-        text-align: center;
-      }
-
-      .prev, 
-      .next {
-        display: inline-block;
-        padding: 6px 10px;
-        font-weight: bold;
-        font-size: 1.5em;
-        cursor: pointer;
-      }
 
       .hidden {
         display: none;
