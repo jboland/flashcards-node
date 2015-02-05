@@ -5,7 +5,9 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
       body {
         background-color: #00A5F7;
         font-size: 16px;
+        font-family: Helvetica, "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
       }
+
       .flash-card-container {
         width: 400px;
         height: 272px;
@@ -15,7 +17,6 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
         cursor: pointer;
         min-height: 100px;
         position: relative;
-        font-family: Helvetica, "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
         background-color: #fff;
         color: #333;
         border-radius: 5px;
@@ -25,11 +26,14 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
       }
 
       .flash-card-container.flipped .flipper {
+        -webkit-transform: rotateY(180deg);
         transform: rotateY(180deg);
       }
 
       .flipper {
+        -webkit-transition: 0.8s;
         transition: 0.8s;
+        -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
         position: relative;
       }
@@ -51,11 +55,13 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
       .front {
         z-index: 2;
+        -webkit-transform: rotateY(0deg);
         transform: rotateY(0deg);
       }
 
       .back {
-        transform: rotateY(180deg); 
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
         background: transparent;
         z-index: -1;
       }
