@@ -9,8 +9,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
       .flash-card-container {
         width: 400px;
         height: 272px;
-        padding: 15px;
-        border: solid 1px #ddd;
+        border: none;
         box-shadow: 1px 1px 1px #aaa;
         margin: 20px auto;
         cursor: pointer;
@@ -45,6 +44,8 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
         position: absolute;
         top: 0;
         left: 0;
+        border: solid 1px #333;
+        border-radius: 5px;
       }
 
       .front {
@@ -137,6 +138,21 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
         font-size: .7em;
         opacity: 0.6;
         padding: 5px;
+      }
+
+      .nav {
+        margin: 0 auto;
+        width: 130px;
+        text-align: center;
+      }
+
+      .prev, 
+      .next {
+        display: inline-block;
+        padding: 6px 10px;
+        font-weight: bold;
+        font-size: 1.5em;
+        cursor: pointer;
       }
 
       .hidden {
