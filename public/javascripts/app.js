@@ -134,4 +134,14 @@ $(function(){
 	});
 
 
+	$('body').delegate('.flash-card-container', 'swipeleft', function(e) {
+		e.preventDefault();
+		$('.next').trigger('click');
+	});
+
+	$('body').delegate('.flash-card-container', 'swiperight', function(e) {
+		e.preventDefault();
+		$('.prev').trigger('click');
+	});
+
 });
