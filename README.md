@@ -1,6 +1,8 @@
 # flashcards-node
 Backbone app running on node server
 
+[Demo](http://flashcards.joeboland.com/)
+
 To run local:
 * Clone repo
 * npm install
