@@ -9,7 +9,8 @@ $(function(){
 			simplified: '',
 			traditional: '',
 			pinyin: '',
-			definition: ''
+			definition: '',
+			saved: false
 		},
 
 		initialize: function() {
@@ -50,6 +51,8 @@ $(function(){
 		events: {
 			'click .prev' : 'prevWord',
 			'click .next': 'nextWord',
+			'click .save': 'saveCard',
+			'click .search': 'searchCard',
 			'click .flipper': 'toggleFlipped'
 		},
 
@@ -69,13 +72,13 @@ $(function(){
 
 				model.set("index", idx);
 			});
+
+			console.log('renderin the view', this);
 			return this;
 		},
 
 		pickFirst: function() {
 			var firstWordRendered = this.collection.at(0).toJSON();
-			//console.log("firstword", firstWord);
-			//console.log("firstword", firstWord.toJSON());
 			this.$el.html(this.template(firstWordRendered));
 			
 			// set index to first word 
@@ -85,13 +88,20 @@ $(function(){
 		},
 
 		toggleFlipped: function(e) {
-			console.log(e);
-			console.log("in flip");
+			console.log("in flip", e);
 			this.$(".flash-card-container").toggleClass("flipped");
 		},
 
+
+		transitionWord: function(word) {
+			var el = this.$el,
+				that = this;
+			el.hide(200, function() {
+				el.html(that.template(word.toJSON())).show(200);
+			});
+		},
+
 		nextWord: function() {
-			console.log('in next');
 			var nextWord;
 
 			if (this.currentIndex === this.collection.length - 1) {
@@ -104,12 +114,13 @@ $(function(){
 				this.currentIndex += 1;
 			}
 
+			// TODO: improve UI transition from one word to next
+			// this.transitionWord(nextWord);
+
 			this.$el.html(this.template(nextWord.toJSON()));
 		},
 
-		prevWord: function() {
-			console.log('in prev');
-			
+		prevWord: function() {			
 			var nextWord;
 
 			if (this.currentIndex === 0) {
@@ -125,12 +136,35 @@ $(function(){
 			this.$el.html(this.template(nextWord.toJSON()));
 		},
 
+		searchCard: function() {
+			console.log('searchng..', this);
+		
+			var searchTerm = $('.search-term').val(),
+				foundTerm = null;
+
+			if ( !searchTerm.match(/[a-zA-Z]/gi) ) {
+				foundTerm = this.collection.findWhere({ simplified: searchTerm });
+			} else {
+
+			}
+
+			if (foundTerm) {
+				this.$el.html(this.template(foundTerm.toJSON()));
+			} else {
+
+			}
+		},
+
+		saveCard: function() {
+			console.log('saving', this);
+		},
+
 		currentIndex: 0
 	});
 
-	var wordList = new WordCollection();
-	var wordView = new WordView({
-		collection: wordList
+	app.wordList = new WordCollection();
+	app.wordView = new WordView({
+		collection: app.wordList
 	});
 
 
